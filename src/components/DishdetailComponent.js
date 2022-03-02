@@ -34,9 +34,16 @@ class DishDetail extends Component {
                     {this.props.dish.comments.map((c) => {
                         return (
                             <li>
-                                <div>{c.comment}</div>
-                                <div>--{c.author}, {c.date}</div>
-                            </li>
+                                <p>{c.comment}</p>
+                                <p>--{c.author},
+                                    &nbsp;
+                                    {new Intl.DateTimeFormat('en-US', {
+                                        year: 'numeric',
+                                        month: 'long',
+                                        day: '2-digit'
+                                    }).format(new Date(c.date))}
+                                </p>
+                    </li>
                         )
                     })
                     }                    
