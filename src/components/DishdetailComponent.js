@@ -6,7 +6,8 @@ class DishDetail extends Component {
     render() {
         if (this.props.dish != null)
             return ( 
-                <div className='row'>
+                <div className='container'>
+                  <div className='row'>
                     <div className='col-12 col-md-5 m-1'>
                        <Card>
                             <CardImg top src={this.props.dish.image} alt={this.props.dish.name} />
@@ -18,7 +19,8 @@ class DishDetail extends Component {
                     </div>
                     <div className='col-12 col-md-5 m-1'> 
                         {this.renderComments()}
-                    </div>
+                        </div>
+                        </div>
                </div>
             );
         else
@@ -36,10 +38,10 @@ class DishDetail extends Component {
                             <li>
                                 <p>{c.comment}</p>
                                 <p>--{c.author},
-                                    &nbsp;
+                                &nbsp;
                                     {new Intl.DateTimeFormat('en-US', {
                                         year: 'numeric',
-                                        month: 'long',
+                                        month: 'short',
                                         day: '2-digit'
                                     }).format(new Date(c.date))}
                                 </p>
